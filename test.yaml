@@ -31,7 +31,7 @@ paths:
                   - url
             application/xml:
               example:
-                title: "Mocked XML title"
+                title: "Mocked XML 1234 title"
                 completed: true
                 order: 13
                 url: "http://mockedURL.com"
