@@ -7,7 +7,7 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kusk-gateway-dashboard1
+  name: kusk-gateway-dashboard
   namespace: kusk-system
 spec:
   ports:
@@ -23,17 +23,17 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kusk-gateway-dashboard1
+  name: kusk-gateway-dashboard
   namespace: kusk-system
   labels:
-    app.kubernetes.io/instance: kusk-gateway-dashboard1
-    app.kubernetes.io/name: kusk-gateway-dashboard1
+    app.kubernetes.io/instance: kusk-gateway-dashboard
+    app.kubernetes.io/name: kusk-gateway-dashboard
     app.kubernetes.io/version: v1.1.0-stable
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/instance: kusk-gateway-dashboard1
-      app.kubernetes.io/name: kusk-gateway-dashboard1
+      app.kubernetes.io/instance: kusk-gateway-dashboard
+      app.kubernetes.io/name: kusk-gateway-dashboard
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -42,8 +42,8 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/instance: kusk-gateway-dashboard1
-        app.kubernetes.io/name: kusk-gateway-dashboard1
+        app.kubernetes.io/instance: kusk-gateway-dashboard
+        app.kubernetes.io/name: kusk-gateway-dashboard
     spec:
       containers:
         - image: kubeshop/kusk-gateway-dashboard:v1.1.0-stable
@@ -63,13 +63,13 @@ spec:
               path: /
               port: http
               scheme: HTTP
-      serviceAccount: kusk-gateway-dashboard1
+      serviceAccount: kusk-gateway-dashboard
       serviceAccountName: kusk-gateway-dashboard
 ---
 apiVersion: gateway.kusk.io/v1alpha1
 kind: StaticRoute
 metadata:
-  name: kusk-gateway-dashboard1
+  name: kusk-gateway-dashboard
   namespace: kusk-system
 spec:
   fleet:
